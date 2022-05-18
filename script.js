@@ -1046,7 +1046,7 @@ search_container.setAttribute("class", "search-container");
 inputSearch = document.createElement("input");
 inputSearch.setAttribute("type", "text");
 inputSearch.setAttribute("name", "searchBar");
-inputSearch.setAttribute("placeholder", "Search for Name");
+inputSearch.setAttribute("placeholder", "Search your Name");
 
 buttonSearch = document.createElement("button");
 buttonSearch.innerHTML = `<i class="fa fa-search"></i>`;
@@ -1082,9 +1082,9 @@ async function getNationality(name) {
       if (countries.length != 0) {
         for (let i in countries) {
           content = document.createElement("p");
-          content.innerHTML = `${nameCode(countries[i]["country_id"])}: ${
+          content.innerHTML = `${nameCode(countries[i]["country_id"])}: <span>${
             Math.round(countries[i]["probability"] * 100) / 100
-          }`;
+          }</span>`;
           data_container.append(content);
         }
 

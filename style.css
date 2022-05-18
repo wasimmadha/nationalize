@@ -1,10 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 /* ===================
 variables
 =================== */
 
 :root {
   --star: #262f38;
-  --text: #0358a8;
+  --text: #4c9fee;
   --selected: hsl(203, 62%, 93%);
   --dark-blue: #00172d;
 }
@@ -23,6 +24,14 @@ body {
 /* ===================
 Typography
 =================== */
+
+h2 {
+  font-size: 2rem;
+  font-family: "Lobster", cursive;
+  margin: 0;
+  padding: 0;
+  color: var(--dark-blue);
+}
 p {
   font-size: 1rem;
   color: var(--text);
@@ -58,33 +67,34 @@ Search
   width: 100%;
   height: 40px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  border: solid var(--text) 2px;
+  border-radius: 10px;
 }
 
 .search-container > * {
   background: transparent;
   border: none;
   outline: none;
-  border: solid var(--text) 2px;
-  border-radius: 10px;
   color: var(--selected);
   padding: 10px;
-  margin-right: 1.5rem;
 }
 
 .search-container > input {
-  width: 60%;
+  width: 80%;
 }
 .search-container > button {
   width: 20%;
-  align-items: center;
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  align-items: flex-end;
 }
 
-.search-container > button:hover {
-  background-color: var(--selected);
-  color: var(--dark-blue);
+.search-container > button > * {
+  margin-bottom: -2px;
 }
+
 .search-container > *:focus {
   outline: none;
 }
@@ -108,4 +118,8 @@ Ouput
   padding-top: 1rem;
   font-size: 1.5rem;
   color: var(--selected);
+}
+
+.data-container > p > span{
+  color: var(--text);
 }
