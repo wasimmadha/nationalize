@@ -12,14 +12,24 @@ body {
   align-items: center;
   justify-content: center;
   overflow: none;
+  text-align: center;
+}
+
+p{
+  font-size: 1rem;
+  color: #0358a8;
+  padding: 0;
+  border-bottom: #00172D dashed 2px;
 }
 
 .container {
+
   min-height: 350px;
   width: 80%;
   max-width: 400px;
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
   align-items: center;
   text-align: center;
   justify-content: flex-start;
@@ -48,7 +58,7 @@ body {
   background: transparent;
   border: none;
   outline: none;
-  border: solid var(--selected) 2px;
+  border: solid #5fa5e6 2px;
   border-radius: 10px;
   color: var(--selected);
   padding: 10px;

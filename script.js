@@ -1028,6 +1028,17 @@ country_code = [
 container = document.createElement("div");
 container.setAttribute("class", "container");
 
+// Heading
+heading_container = document.createElement("div");
+
+heading_title = document.createElement("h2");
+heading_title.innerHTML = "Nationalize";
+
+heading_para = document.createElement("p");
+heading_para.innerHTML = "Know your nationality by using name";
+
+heading_container.append(heading_title, heading_para);
+
 // Search Functionalities
 search_container = document.createElement("div");
 search_container.setAttribute("class", "search-container");
@@ -1047,7 +1058,7 @@ data_container = document.createElement("div");
 data_container.setAttribute("class", "data-container");
 
 container.append(search_container);
-document.body.append(container);
+document.body.append(heading_container, container);
 
 buttonSearch.addEventListener("click", () => {
   data_container.innerHTML = ``;
@@ -1063,6 +1074,7 @@ async function getNationality(name) {
       content = document.createElement("p");
       content.innerHTML = `Enter Name Correctly`;
       data_container.append(content);
+      inputSearch.value = "";
     } else {
       let result = await res.json();
 
@@ -1082,6 +1094,7 @@ async function getNationality(name) {
         content.innerHTML = `This name is not much popular`;
         content.style.fontsize = "20px";
         data_container.append(content);
+        inputSearch.value = "";
       }
     }
   } catch (error) {
