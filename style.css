@@ -1,8 +1,8 @@
 :root {
-  --white: 
   --star: #262f38;
-  --text: hsl(217, 25%, 77%);
+  --text: #0358a8;
   --selected: hsl(203, 62%, 93%);
+  --dark-blue :#00172D;
 }
 
 body {
@@ -13,13 +13,14 @@ body {
   justify-content: center;
   overflow: none;
   text-align: center;
+  background-color: aliceblue;
 }
 
 p{
   font-size: 1rem;
-  color: #0358a8;
+  color: var(--text);
   padding: 0;
-  border-bottom: #00172D dashed 2px;
+  border-bottom: var(--dark-blue) dashed 2px;
 }
 
 .container {
@@ -34,7 +35,7 @@ p{
   text-align: center;
   justify-content: flex-start;
   border-radius: 5%;
-  background-color: #00172D;
+  background-color:var(--dark-blue);
   padding: 1.5rem;
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -58,7 +59,7 @@ p{
   background: transparent;
   border: none;
   outline: none;
-  border: solid #5fa5e6 2px;
+  border: solid var(--text) 2px;
   border-radius: 10px;
   color: var(--selected);
   padding: 10px;
@@ -67,7 +68,7 @@ p{
 
 .search-container > button:hover {
   background-color: var(--selected);
-  color: #00172D;
+  color: var(--dark-blue);
 }
 .search-container > *:focus {
   outline: none;
