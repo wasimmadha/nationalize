@@ -22,9 +22,6 @@ heading_title.innerHTML = "Nationality Finder";
 heading_para = document.createElement("p");
 heading_para.innerHTML = "Know your nationality by using name";
 
-// Disable subheading by changing volor
-heading_para.style.color = "aliceblue";
-
 // Append title and para to container
 heading_container.append(heading_title, heading_para);
 
@@ -84,7 +81,6 @@ buttonSearch.addEventListener("click", () => {
   if (name != "") {
     data_container.innerHTML = ``;
     // Subheading appears after output
-    heading_para.style.color = "#4c9fee";
     getNationality(name);
   }
 });
