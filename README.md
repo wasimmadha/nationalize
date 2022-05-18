@@ -9,7 +9,8 @@ https://eclectic-queijadas-98e832.netlify.app/
 API used is https://nationalize.io/   
 
 Technologies used:
--- Javascript
--- HTML
--- CSS
+
+* Javascript
+* HTML
+* CSS
 
