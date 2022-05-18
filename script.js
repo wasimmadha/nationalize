@@ -1064,6 +1064,7 @@ buttonSearch.addEventListener("click", () => {
   data_container.innerHTML = ``;
   let name = inputSearch.value;
   getNationality(name);
+  inputSearch.value = "";
 });
 
 async function getNationality(name) {
@@ -1077,7 +1078,6 @@ async function getNationality(name) {
       inputSearch.value = "";
     } else {
       let result = await res.json();
-
       let countries = result["country"];
       if (countries.length != 0) {
         for (let i in countries) {
