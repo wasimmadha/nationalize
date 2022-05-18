@@ -1,3 +1,4 @@
+// Country codes to get Full name
 country_code = [
   {
     Country: "Afghanistan",
@@ -1025,46 +1026,88 @@ country_code = [
   },
 ];
 
-container = document.createElement("div");
-container.setAttribute("class", "container");
+/*
+Create Html
+-- Heading
+-- Container
+-- Search
+-- Data
+*/
 
-// Heading
+/*
+Heading container displays Title of the app
+Contains
+1. Heading title 
+2. Heading para -- will be disable till output
+
+*/
+// Creates container
 heading_container = document.createElement("div");
 
+// Creates Html title and para
 heading_title = document.createElement("h2");
 heading_title.innerHTML = "Nationalize";
-
 heading_para = document.createElement("p");
 heading_para.innerHTML = "Know your nationality by using name";
 
+// Disable subheading by changing volor
+heading_para.style.color = "aliceblue";
+
+// Append title and para to container
 heading_container.append(heading_title, heading_para);
+
+
+
+/*
+Main Container displays the whole content with search functionalities 
+Contains
+1. Search container -- Search Input + button
+2. Data Container -- Display whole data
+*/
+container = document.createElement("div");
+container.setAttribute("class", "container");
+
+
 
 // Search Functionalities
 search_container = document.createElement("div");
 search_container.setAttribute("class", "search-container");
 
+// Input Element
 inputSearch = document.createElement("input");
-inputSearch.setAttribute("type", "text");
+inputSearch.setAttribute("type", "text"); 
 inputSearch.setAttribute("name", "searchBar");
 inputSearch.setAttribute("placeholder", "Search your Name");
 
+// Button Element
 buttonSearch = document.createElement("button");
-buttonSearch.innerHTML = `<i class="fa fa-search"></i>`;
+buttonSearch.innerHTML = `<i class="fa fa-search"></i>`; // Search logo using font-awesome
 
+
+// Append input and button to the search_container
 search_container.append(inputSearch, buttonSearch);
 
-// Data Container
+// Data Container will contain output from the api
 data_container = document.createElement("div");
 data_container.setAttribute("class", "data-container");
 
-container.append(search_container);
+// Content before Search
+content = document.createElement("p");
+content.innerHTML = `Know your nationality by using name`;
+content.setAttribute("class", "tag");
+data_container.append(content);
+
+container.append(search_container, data_container);
 document.body.append(heading_container, container);
 
 buttonSearch.addEventListener("click", () => {
   data_container.innerHTML = ``;
+  // Subheading appears after color
+  heading_para.style.color = "#4c9fee";
+  heading_para.style.userSelect = "none";
+
   let name = inputSearch.value;
   getNationality(name);
-  inputSearch.value = "";
 });
 
 async function getNationality(name) {
@@ -1074,6 +1117,7 @@ async function getNationality(name) {
     if (res["status"] == "422") {
       content = document.createElement("p");
       content.innerHTML = `Enter Name Correctly`;
+      content.setAttribute("class", "tag");
       data_container.append(content);
       inputSearch.value = "";
     } else {
@@ -1083,8 +1127,8 @@ async function getNationality(name) {
         for (let i in countries) {
           content = document.createElement("p");
           content.innerHTML = `${nameCode(countries[i]["country_id"])}: <span>${
-            Math.round(countries[i]["probability"] * 100) / 100
-          }</span>`;
+            Math.round(countries[i]["probability"] * 100) 
+          }%</span>`;
           data_container.append(content);
         }
 
@@ -1097,6 +1141,8 @@ async function getNationality(name) {
         inputSearch.value = "";
       }
     }
+
+    inputSearch.value = "";
   } catch (error) {
     content = document.createElement("p");
     content.innerHTML = `Enter Name Correctly`;
@@ -1113,3 +1159,10 @@ function nameCode(code) {
 
   return country[0].Country;
 }
+
+inputSearch.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    buttonSearch.click();
+  }
+});

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
 /* ===================
 variables
 =================== */
@@ -36,7 +36,8 @@ p {
   font-size: 1rem;
   color: var(--text);
   padding: 0;
-  border-bottom: var(--dark-blue) dashed 2px;
+  font-family: "Montserrat", sans-serif;
+  user-select: none;
 }
 
 /* ===================
@@ -110,16 +111,27 @@ Ouput
   display: flex;
   flex-direction: column;
   align-content: center;
+  align-items: center;
   justify-content: space-around;
-  text-align: left;
+  text-align: center;
 }
 
 .data-container > * {
   padding-top: 1rem;
   font-size: 1.5rem;
   color: var(--selected);
+  user-select: all;
 }
 
-.data-container > p > span{
+.data-container > p > span {
   color: var(--text);
+}
+
+.tag {
+  font-size: 1.5rem;
+}
+
+.heading-container {
+  display: flex;
+  align-items: flex-start;
 }
